@@ -9,6 +9,10 @@ export class AppComponent {
   title = 'slaa-katten-af-toenden';
 
   hitClicked() {
-    alert('Du trykkede på SLÅ!');
+    let elem = document.getElementById('bat');
+    elem?.classList.add('hit');
+    new Promise((resolve) => setTimeout(resolve, 750)).then(() => {
+      elem?.classList.remove('hit');
+    });
   }
 }
