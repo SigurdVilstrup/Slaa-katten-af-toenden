@@ -1,0 +1,23 @@
+:host {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .ans-container {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      width: 40%;
+      height: 30%;
+      margin: 30px 0;
+    }
+  }
+}

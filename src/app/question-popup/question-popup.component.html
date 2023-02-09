@@ -1,1 +1,15 @@
-<p>question-popup works!</p>
+<h1>{{ question?.question }}</h1>
+<div class="ans-container" *ngIf="question">
+  <button class="ans1" (click)="emitReponse(question.answer)">
+    {{ question.answer }}
+  </button>
+  <button class="ans2" (click)="emitReponse(question.option1)">
+    {{ question.option1 }}
+  </button>
+  <button class="ans3" (click)="emitReponse(question.option2)">
+    {{ question.option2 }}
+  </button>
+  <button class="ans4" (click)="emitReponse(question.option3)">
+    {{ question.option3 }}
+  </button>
+</div>

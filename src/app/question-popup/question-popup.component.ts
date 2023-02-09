@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Question } from './../../assets/questions';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-question-popup',
   templateUrl: './question-popup.component.html',
-  styleUrls: ['./question-popup.component.scss']
+  styleUrls: ['./question-popup.component.scss'],
 })
-export class QuestionPopupComponent implements OnInit {
+export class QuestionPopupComponent {
+  @Input() question?: Question;
 
-  constructor() { }
+  @Output() response = new EventEmitter<String>();
 
-  ngOnInit(): void {
+  constructor() {}
+
+  emitReponse(response: string) {
+    this.response.emit(response);
   }
-
 }

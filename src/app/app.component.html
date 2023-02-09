@@ -11,3 +11,9 @@
   />
   <img class="bat-img" id="bat" src="../assets/bat.png" alt="bat" />
 </div>
+<div *ngIf="popup && defaultQuestions[questionIndex]" class="popup">
+  <app-question-popup
+    [question]="defaultQuestions[questionIndex]"
+    (response)="questionAnswered($event)"
+  ></app-question-popup>
+</div>

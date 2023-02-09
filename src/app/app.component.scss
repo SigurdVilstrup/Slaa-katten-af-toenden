@@ -9,9 +9,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: lightgrey;
   width: 100%;
   flex: 1;
+  z-index: 0;
 }
 
 .hit-button {
@@ -62,4 +62,15 @@
   position: absolute;
   top: 50%;
   left: 10%;
+}
+
+.popup {
+  top: 50%;
+  transform: translate(0, -50%);
+  position: absolute;
+  z-index: 100;
+  height: 65vh;
+  width: 65vw;
+  box-shadow: 0 0 10px #aaa;
+  background-color: white;
 }
