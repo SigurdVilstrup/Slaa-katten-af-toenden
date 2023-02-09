@@ -36,16 +36,30 @@
 
 .bat-img {
   position: absolute;
-  height: 18rem;
+  height: 50vh;
   bottom: 0;
-  left: 60%;
   transform-origin: bottom left;
+  left: 55%;
 
-  &.hit{
+  &.hit {
     rotate: -35deg;
   }
 }
 
 .tonde-img {
-  height: 80%;
+  position: absolute;
+  height: 70%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.zero {
+  height: 0;
+  width: 0;
+}
+
+.hit-button {
+  position: absolute;
+  top: 50%;
+  left: 10%;
 }
