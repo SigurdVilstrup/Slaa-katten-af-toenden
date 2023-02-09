@@ -1,6 +1,6 @@
 # Slå katten af tønden
 
-Implementation of the danish game related to "fastalavn" where we "Slår katten af tønden"....
+Implementation of the danish game related to "fastelavn" where we "Slår katten af tønden"....
 
 ## Development server
 
