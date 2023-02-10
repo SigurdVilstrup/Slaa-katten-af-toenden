@@ -8,7 +8,7 @@ export interface Question {
 
 export const defaultQuestionList: Question[] = [
   {
-    question: 'Hvornår falder fastelavn?',
+    question: 'Til Halloween klæder man også sit hus ud, men hvor mange danskere pynter op til Halloween?',
     answer: 'Altid 7 uger før påskedag',
     option1: 'Der er ikke en fast regel pga. skudår',
     option2: 'Altid 6 uger efter nytår',

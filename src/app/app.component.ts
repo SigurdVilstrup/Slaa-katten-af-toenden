@@ -9,15 +9,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'slaa-katten-af-toenden';
   popup: boolean = false;
-  questionIndex = 0;
+  questionIndex = -1;
   defaultQuestions: Question[] = defaultQuestionList;
   correct?: boolean;
   hitCounter: number = 0;
   tryCounter: number = 0;
 
   hitClicked() {
-    this.popup = true;
     this.questionIndex++;
+    this.popup = true;
     this.tryCounter++;
   }
 

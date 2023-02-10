@@ -25,6 +25,13 @@ export class QuestionPopupComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setInterval(() => {
+      if (this.counter.nativeElement.classList.contains('big')) {
+        this.counter.nativeElement.classList.remove('big');
+      } else {
+        this.counter.nativeElement.classList.add('big');
+      }
+    }, 250);
+    setInterval(() => {
       this.countdownTimer--;
       if (this.countdownTimer === 0) this.emitReponse('nope');
       this.counter.nativeElement.innerText = this.countdownTimer;
