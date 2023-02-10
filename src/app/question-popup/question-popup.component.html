@@ -1,4 +1,7 @@
-<h1>{{ question?.question }}</h1>
+<div class="header">
+  <h1>{{ question?.question }}</h1>
+  <div #counter class="counter">10</div>
+</div>
 <div class="ans-container" *ngIf="question">
   <button class="ans1" (click)="emitReponse(question.answer)">
     {{ question.answer }}

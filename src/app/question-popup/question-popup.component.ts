@@ -1,17 +1,35 @@
 import { Question } from './../../assets/questions';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-question-popup',
   templateUrl: './question-popup.component.html',
   styleUrls: ['./question-popup.component.scss'],
 })
-export class QuestionPopupComponent {
+export class QuestionPopupComponent implements AfterViewInit {
   @Input() question?: Question;
 
   @Output() response = new EventEmitter<String>();
 
-  constructor() {}
+  countdownTimer = 10;
+  @ViewChild('counter', { static: true }) counter: ElementRef;
+
+  ngAfterViewInit() {
+    setInterval(() => {
+      this.countdownTimer--;
+      if (this.countdownTimer === 0) this.emitReponse('nope');
+      this.counter.nativeElement.innerText = this.countdownTimer;
+    }, 1000);
+  }
 
   emitReponse(response: string) {
     this.response.emit(response);
