@@ -40,9 +40,17 @@
   bottom: 0;
   transform-origin: bottom left;
   left: 55%;
+  transition-property: rotate;
+  transition-timing-function: ease-in-out;
 
   &.hit {
     rotate: -35deg;
+    transition-duration: 50ms;
+  }
+
+  &.miss {
+    rotate: -120deg;
+    transition-duration: 300ms;
   }
 }
 
@@ -73,4 +81,25 @@
   width: 65vw;
   box-shadow: 0 0 10px #aaa;
   background-color: white;
+}
+
+.result-popup {
+  top: 50%;
+  transform: translate(0, -50%);
+  position: absolute;
+  z-index: 50;
+  height: 25vh;
+  width: 25vh;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 5rem;
+    color: white;
+    text-shadow: 0 0 10px #aaa;
+    text-align: center;
+  }
 }

@@ -1,4 +1,4 @@
-<h1>Lorem ipsum dolor sit amet.!</h1>
+<h1>LAD OS SLÅ KATTEN AF TØNDEN!</h1>
 <div class="body-container">
   <div class="zero">
     <button class="hit-button" (click)="hitClicked()">SLÅ!</button>
@@ -10,6 +10,19 @@
     alt="fastelavns_tønde"
   />
   <img class="bat-img" id="bat" src="../assets/bat.png" alt="bat" />
+</div>
+<div class="result-popup" *ngIf="correct !== undefined">
+  <ng-container
+    *ngIf="correct; then displayCorrect; else displayWrong"
+  ></ng-container>
+  <ng-template #displayCorrect
+    ><img src="../assets/correct.png" alt="CORRECT" />
+    <h1>NICE!</h1>
+  </ng-template>
+  <ng-template #displayWrong
+    ><img src="../assets/wrong.png" alt="WRONG" />
+    <h1>SWOOSH!</h1>
+  </ng-template>
 </div>
 <div *ngIf="popup && defaultQuestions[questionIndex]" class="popup">
   <app-question-popup

@@ -11,17 +11,23 @@ export class AppComponent {
   popup: boolean = false;
   questionIndex = 0;
   defaultQuestions: Question[] = defaultQuestionList;
+  correct?: boolean;
+  hitCounter: number = 0;
+  tryCounter: number = 0;
 
   hitClicked() {
     this.popup = true;
     this.questionIndex++;
+    this.tryCounter++;
   }
 
   questionAnswered(response: String) {
     this.popup = false;
     if (response === this.defaultQuestions[this.questionIndex].answer) {
       this.hitTonde();
+      this.hitCounter++;
     } else {
+      this.correct = false;
       this.booHoo();
     }
   }
@@ -29,14 +35,22 @@ export class AppComponent {
   hitTonde() {
     let elem = document.getElementById('bat');
     elem?.classList.add('hit');
+    this.correct = true;
     new Promise((resolve) => setTimeout(resolve, 750)).then(() => {
       elem?.classList.remove('hit');
+      this.correct = undefined;
+    });
+  }
+
+  booHoo() {
+    let elem = document.getElementById('bat');
+    elem?.classList.add('miss');
+    this.correct = false;
+    new Promise((resolve) => setTimeout(resolve, 750)).then(() => {
+      elem?.classList.remove('miss');
+      this.correct = undefined;
     });
   }
 
   explodeTonde() {}
-
-  booHoo() {
-    alert('FORKERT!');
-  }
 }
