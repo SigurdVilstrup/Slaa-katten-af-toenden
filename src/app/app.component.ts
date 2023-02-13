@@ -24,7 +24,7 @@ export class AppComponent {
   questionAnswered(response: String) {
     this.popup = false;
     if (response === this.defaultQuestions[this.questionIndex].answer) {
-      if (this.hitCounter < 2) {
+      if (this.tondeShouldExplode()) {
         this.explodeTonde();
       } else {
         this.hitTonde();
@@ -34,6 +34,26 @@ export class AppComponent {
       this.correct = false;
       this.booHoo();
     }
+  }
+
+  tondeShouldExplode(): boolean {
+    if (this.hitCounter < 5) return false;
+    let chance = this.getSigmoid(this.hitCounter);
+    let diceRoll = this.getRandomInt(100) / 100;
+    console.log(
+      `Try: ${this.hitCounter}, Chance: ${chance}, Diceroll: ${diceRoll}`
+    );
+    if (chance > diceRoll) return true;
+    else return false;
+  }
+
+  getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
+  }
+
+  getSigmoid(x: number) {
+    let x_factor = x * 0.25 - 5;
+    return Math.exp(x_factor) / (Math.exp(x_factor) + 1);
   }
 
   hitTonde() {
