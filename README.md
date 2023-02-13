@@ -9,7 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## To DO
 
 - Randomize answer options
-- Fejlbesked når der misses
-- Timer på svartid
-- Tønden springer funktion
+- ~~Fejlbesked når der misses~~
+- ~~Timer på svartid~~
+- ~~Tønden springer funktion~~
 - Randomiseret exp funktion til hvornår tønden springer

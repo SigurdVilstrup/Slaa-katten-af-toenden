@@ -24,8 +24,12 @@ export class AppComponent {
   questionAnswered(response: String) {
     this.popup = false;
     if (response === this.defaultQuestions[this.questionIndex].answer) {
-      this.hitTonde();
-      this.hitCounter++;
+      if (this.hitCounter < 2) {
+        this.explodeTonde();
+      } else {
+        this.hitTonde();
+        this.hitCounter++;
+      }
     } else {
       this.correct = false;
       this.booHoo();
@@ -52,5 +56,23 @@ export class AppComponent {
     });
   }
 
-  explodeTonde() {}
+  explodeTonde() {
+    let elemBat = document.getElementById('bat');
+    let elemTonde = document.getElementById('tonde');
+    let elemExplosion = document.getElementById('explosion');
+
+    elemBat?.classList.add('hit');
+    this.correct = true;
+    new Promise((resolve) => setTimeout(resolve, 50)).then(() => {
+      elemExplosion?.classList.remove('hide');
+      new Promise((resolve) => setTimeout(resolve, 450)).then(() => {
+        elemExplosion?.classList.add('big');
+        new Promise((r) => setTimeout(r, 250)).then(() => {
+          elemTonde?.classList.add('hide');
+          elemBat?.classList.add('hide');
+          this.correct = undefined;
+        });
+      });
+    });
+  }
 }
