@@ -19,6 +19,8 @@ export class AppComponent {
     this.questionIndex++;
     this.popup = true;
     this.tryCounter++;
+    console.log(this.popup);
+    console.log(this.defaultQuestions[this.questionIndex])
   }
 
   questionAnswered(response: String) {
