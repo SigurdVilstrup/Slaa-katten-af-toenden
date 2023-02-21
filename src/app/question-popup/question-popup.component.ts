@@ -18,7 +18,7 @@ import { timer } from 'rxjs';
 })
 export class QuestionPopupComponent implements AfterContentInit, OnDestroy {
   ngOnDestroy(): void {
-    this.countdownTimer = 10;
+    this.countdownTimer = 20;
     this.allOptions = undefined;
     this.question = undefined;
   }
@@ -28,7 +28,7 @@ export class QuestionPopupComponent implements AfterContentInit, OnDestroy {
 
   allOptions?: string[];
 
-  countdownTimer = 10;
+  countdownTimer = 20;
 
   @ViewChild('counter', { static: true }) counter: ElementRef;
 
